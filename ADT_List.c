@@ -46,10 +46,10 @@ Node *NEXT(Node *node)
 
 void INSERT(int value, Node *node)
 {
-	Node *new = malloc(sizeof(Node));
-	new->value = value;
-	new->next = node->next;
-	node->next = new;
+	Node *new_node = malloc(sizeof(Node));
+	new_node->value = value;
+	new_node->next = node->next;
+	node->next = new_node;
 }
 
 void REMOVE(Node *node)
