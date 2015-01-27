@@ -44,12 +44,30 @@ Node *list_next(Node *node)
 	return node->next;
 }
 
+Node *list_locate(List *l, int value)
+{
+	Node *node = &l->head;
+	while (node->next != NULL && node->next->value != value)
+	{
+		node = node->next;
+	}
+
+	return node;
+}
+
 void list_insert(int value, Node *node)
 {
 	Node *new_node = malloc(sizeof(Node));
 	new_node->value = value;
 	new_node->next = node->next;
 	node->next = new_node;
+}
+
+void list_delete(Node *node)
+{
+	Node *tmp = node->next;
+	node->next = tmp->next;
+	free(tmp);
 }
 
 void list_remove(Node *node)
