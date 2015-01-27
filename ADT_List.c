@@ -70,13 +70,6 @@ void list_delete(Node *node)
 	free(tmp);
 }
 
-void list_remove(Node *node)
-{
-	Node *to_remove = node->next;
-	node->next = to_remove->next;
-	free(to_remove);
-}
-
 int list_retrieve(Node *node)
 {
 	return node->next->value;

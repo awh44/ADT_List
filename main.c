@@ -20,6 +20,8 @@ int main(int argc, char *argv[])
 	printf("Deleting p. List is now:\n");
 	list_delete(p);
 	list_print(&l);
+	
+	list_uninitialize(&l);
 
 	return 0;
 }
