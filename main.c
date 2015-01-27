@@ -20,6 +20,12 @@ int main(int argc, char *argv[])
 	printf("Deleting p. List is now:\n");
 	list_delete(p);
 	list_print(&l);
+
+
+	for (p = list_previous(&l, list_end(&l)); !list_is_beginning(&l, p); p = list_previous(&l, p))
+	{
+		printf("%d\n", list_retrieve(p));
+	}
 	
 	list_uninitialize(&l);
 

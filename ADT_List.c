@@ -39,9 +39,30 @@ uint8_t list_is_end(Node *node)
 	return node->next == NULL;
 }
 
+uint8_t list_is_beginning(List *l, Node *node)
+{
+	return node == NULL;
+}
+
 Node *list_next(Node *node)
 {
 	return node->next;
+}
+
+Node *list_previous(List *l, Node *node)
+{
+	if (node == &l->head)
+	{
+		return NULL;
+	}
+
+	Node *curr = &l->head;
+	while (curr->next != node)
+	{
+		curr = curr->next;
+	}
+
+	return curr;
 }
 
 Node *list_locate(List *l, int value)
@@ -57,7 +78,7 @@ Node *list_locate(List *l, int value)
 
 void list_insert(int value, Node *node)
 {
-	Node *new_node = malloc(sizeof(Node));
+	Node *new_node = malloc(sizeof *new_node);
 	new_node->value = value;
 	new_node->next = node->next;
 	node->next = new_node;
