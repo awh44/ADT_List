@@ -3,12 +3,12 @@
 
 #include "ADT_List.h"
 
-void INITIALIZE(List *l)
+void list_initialize(List *l)
 {
 	l->head.next = NULL;
 }
 
-void FREE_LIST(List *l)
+void list_uninitialize(List *l)
 {
 	Node *node = l->head.next;
 	while (node != NULL)
@@ -19,12 +19,12 @@ void FREE_LIST(List *l)
 	}
 }
 
-Node *FIRST(List *l)
+Node *list_first(List *l)
 {
 	return &l->head;
 }
 
-Node *END(List *l)
+Node *list_end(List *l)
 {
 	Node *node = &l->head;
 	while (node->next != NULL)
@@ -34,17 +34,17 @@ Node *END(List *l)
 	return node;
 }
 
-int IS_END(Node *node)
+uint8_t list_is_end(Node *node)
 {
 	return node->next == NULL;
 }
 
-Node *NEXT(Node *node)
+Node *list_next(Node *node)
 {
 	return node->next;
 }
 
-void INSERT(int value, Node *node)
+void list_insert(int value, Node *node)
 {
 	Node *new_node = malloc(sizeof(Node));
 	new_node->value = value;
@@ -52,23 +52,23 @@ void INSERT(int value, Node *node)
 	node->next = new_node;
 }
 
-void REMOVE(Node *node)
+void list_remove(Node *node)
 {
 	Node *to_remove = node->next;
 	node->next = to_remove->next;
 	free(to_remove);
 }
 
-int RETRIEVE(Node *node)
+int list_retrieve(Node *node)
 {
 	return node->next->value;
 }
 
-void PRINTLIST(List *l)
+void list_print(List *l)
 {
 	Node *node;
-	for (node = FIRST(l); !IS_END(node); node = NEXT(node))
+	for (node = list_first(l); !list_is_end(node); node = list_next(node))
 	{
-		printf("%d\n", RETRIEVE(node));
+		printf("%d\n", list_retrieve(node));
 	}
 }
