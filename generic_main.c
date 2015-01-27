@@ -1,9 +1,6 @@
 #include <stdio.h>
 
-#include "ADT_List.h"
-#include "Generic_ADT_List.h"
-
-MAKE_LIST_TYPE(int)
+#include "ADT_intList.h"
 
 void int_list_print(intList *l)
 {

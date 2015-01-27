@@ -3,6 +3,8 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdint.h>
+
 #define MAKE_LIST_TYPE(type) \
 typedef struct type##ListNode\
 {\
