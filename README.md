@@ -54,4 +54,5 @@ And the following functions will be created:
 As noted above, this does C++ style templating and will therefore actually create and compile separate functions for evry call to the macro, just as in C++ templates.
       
 This completely specifies the behavior of a typeList list created from this macro. If these lists are to be used in multiple different modules, the expansion of the macro should be probably be done in a header file, with header guards, and included in the different modules, because the macro does not prevent problems with redeclaraing the same list type. Please see the generic/intList.h and generic/uint64_tList.h files for examples, with the generic/main.c file as an example of a file using these types.
-  
+
+As another note, currently, if the type that is to be used for the data in the List contains a pointer (e.g., char \*), then you'll have to typedef that beforehand and pass the typedef to the MAKE_LIST_TYPE macro. See the example at the top of main.c with a char * typedef.

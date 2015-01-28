@@ -3,6 +3,9 @@
 #include "intList.h"
 #include "uint64_tList.h"
 
+typedef char* charptr;
+MAKE_LIST_TYPE(charptr);
+
 void int_list_print(intList *l)
 {
 	int_list_position p;
